@@ -1,0 +1,30 @@
+body
+    {
+       background-color: C19A6B;
+    }
+
+a:link
+    {
+        color: maroon;
+        background-color: whitesmoke;
+        text-decoration: none;
+        padding: 15px;
+    }
+a:visited
+    {
+        color: whitesmoke;
+        background-color: 493D26;
+        text-decoration: none;
+    }
+a:hover
+    {
+        color: papayawhip;
+        background-color: tan;
+        text-decoration: underline;
+    }
+a:active
+    {
+        color: peru;
+        background-color: bisque;
+        text-decoration: underline;
+    }

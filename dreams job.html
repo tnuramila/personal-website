@@ -1,0 +1,180 @@
+<html>
+    <head>
+        <title>Dreams</title>
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+    <style>
+        table, th, td
+             {
+                 border: 1px solid black;
+                 border-collapse: collapse;
+                 background-color: 493D26;
+                 color: honeydew;
+             }
+        th, td 
+            {
+                padding: 10px;
+            }
+        th
+            {
+                text-align: left;
+            }
+    </style>
+<body>
+    <div style="text-align: center;">
+    <h1 style="color: #5C3317;"><i>Amila's Dream Jobs</i></h1>
+
+    <a href="index.html" target="_blank">Homepage</a>
+    <a href="biodata.html" target="_blank">Biodata</a>
+    <a href="dreams job.html" target="_blank">Dreams Job</a>
+    <a href="education.html" target="_blank">Education</a>
+    <a href="family.html" target="_blank">Family</a>
+    <a href="gallery.html" target="_blank">Gallery</a>
+    <a href="contact.html" target="_blank">Contact Me</a>
+    <a href="game.html" target="_blank">Game</a>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <center>
+        <canvas id="canvas" width="200" height="200"
+        style="background-color: none";>
+        </canvas>
+        
+        <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 1000);
+        
+        function drawClock() {
+          drawFace(ctx, radius);
+          drawNumbers(ctx, radius);
+          drawTime(ctx, radius);
+        }
+        
+        function drawFace(ctx, radius) {
+          var grad;
+          ctx.beginPath();
+          ctx.arc(0, 0, radius, 0, 2*Math.PI);
+          ctx.fillStyle = 'white';
+          ctx.fill();
+          grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+          grad.addColorStop(0, '#333');
+          grad.addColorStop(0.5, '#5C3317');
+          grad.addColorStop(1, '#5C3317');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = radius*0.1;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+          ctx.fillStyle = '#333';
+          ctx.fill();
+        }
+        
+        function drawNumbers(ctx, radius) {
+          var ang;
+          var num;
+          ctx.font = radius*0.15 + "px arial";
+          ctx.textBaseline="middle";
+          ctx.textAlign="center";
+          for(num = 1; num < 13; num++){
+            ang = num * Math.PI / 6;
+            ctx.rotate(ang);
+            ctx.translate(0, -radius*0.85);
+            ctx.rotate(-ang);
+            ctx.fillText(num.toString(), 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius*0.85);
+            ctx.rotate(-ang);
+          }
+        }
+        
+        function drawTime(ctx, radius){
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //hour
+            hour=hour%12;
+            hour=(hour*Math.PI/6)+
+            (minute*Math.PI/(6*60))+
+            (second*Math.PI/(360*60));
+            drawHand(ctx, hour, radius*0.5, radius*0.07);
+            //minute
+            minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+            drawHand(ctx, minute, radius*0.8, radius*0.07);
+            // second
+            second=(second*Math.PI/30);
+            drawHand(ctx, second, radius*0.9, radius*0.02);
+        }
+        
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0,0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+        </script></center>
+
+
+
+    
+    <br>
+    <br>
+    <br>
+    <table style="width: 100%;">
+        
+        <tr>
+            <th style="text-align: center;">No.</th>
+            <th style="text-align: center;">Jobs</th>
+            <th style="text-align: center;">Description</th>
+            <th style="text-align: center;">Where</th>
+
+        </tr>
+
+        <tr>
+            <td style="text-align: center;">1.</td>
+            <td style="text-align: center;">Teacher</td>
+            <td><ul><li>A teacher's job entails creating lesson plans and educating pupils of different ages.</li></ul> <ul><li>They are responsible for assigning assignments, grading tests, and keeping track of progress.</li></ul></td>
+            <td><ol type="i"><li>MRSM</li><li>Swasta</ol></li></td>
+        </tr>
+    
+        <tr>
+            <td style="text-align: center;">2.</td>
+            <td style="text-align: center;">Doctor</td>
+            <td><ul><li>A doctor's key responsibilities include administering diagnostic tests and referring patients to specialists, and documenting a patient's medical history.</li></ul></td>
+            <td><ol type="i"><li>NCI Nilai</li><li>KPJ</ol></li></td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;">3.</td>
+            <td style="text-align: center;">Stewardess</td>
+            <td><ul><li>Stewardesses, often known as flight attendants, are responsible for ensuring the safety and comfort of passengers on board.</li></ul> <ul><li>They offer safety instructions, prepare and serve food, and keep the plane's interior clean during the journey.</li></ul></td>
+            <td style="text-align: center;">Saudia Airlines</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;">4.</td>
+            <td style="text-align: center;">Fashion Designer</td>
+            <td><ul><li>A fashion designer makes apparel for consumers, such as dresses, suits, slacks, and skirts, as well as accessories such as shoes and handbags.</li></ul></td>
+            <td style="text-align: center;">Own Boutique</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;">5.</td>
+            <td style="text-align: center;">Lawyer</td>
+            <td><ul><li>Lawyers provide legal advice, conduct research, gather evidence, create legal documents such as contracts, and defend or prosecute cases in court.</li></ul></td>
+            <td>Largest Law Firm</td>
+        </tr>
+        
+</body>
+</html>
